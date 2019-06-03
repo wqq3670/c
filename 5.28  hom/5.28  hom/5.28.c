@@ -265,21 +265,21 @@
 //	return 0;
 //}
 
-int main()
-{
-	int arr[7] = { 1, 4, 2, 1, 4, 2, 8 };
-	int i = 0;
-	int sz = sizeof(arr) / sizeof(arr[0]);
-	int ret = 0;
-	for (i = 0; i < sz; i++)
-	{
-		ret = ret^arr[i];
-
-	}
-	printf("%d\n", ret);
-	system("pause");
-	return 0;
-}
+//int main()
+//{
+//	int arr[7] = { 1, 4, 2, 1, 4, 2, 8 };
+//	int i = 0;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	int ret = 0;
+//	for (i = 0; i < sz; i++)
+//	{
+//		ret = ret^arr[i];
+//
+//	}
+//	printf("%d\n", ret);
+//	system("pause");
+//	return 0;
+//}
 
 
 //12.4有一个字符数组的内容为:"student a am i",
@@ -347,3 +347,29 @@ int main()
 //	return 0;
 //}
 
+//百钱百鸡问题    公鸡五钱一个   母鸡三钱一个   小鸡三个一钱   一百钱买100只
+int main()
+{
+	int i = 0;
+	int j = 0;
+	int k = 0;
+	for (i = 0; i <  21; i++)
+	{
+		for (j = 0; j < 34; j++)
+		{
+			for (k = 0; k < 101; k++)
+			{
+				if (5 * i + 3 * j + 1 * k / 3 == 100)
+				{
+					printf("%d %d %d", i,j,k);
+					printf("\n");
+				}
+			}
+		}
+	}
+
+
+
+	system("pause");
+	return 0;
+}
