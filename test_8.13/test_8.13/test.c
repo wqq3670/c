@@ -72,40 +72,41 @@
 //407 = 4^3 + 0^3 + 7^3。
 //*/
 
-//#include<math.h>
-//
-//int main()
-//{
-//	int i = 0;
-//
-//	for (i = 0; i <= 999; i++)
-//	{
-//		int tmp = i;
-//		int count = 1;
-//		double sum = 0;
-//		//算位数
-//		while (tmp / 10)
-//		{
-//			count++;
-//			tmp = tmp / 10;
-//		}
-//
-//		tmp = i;//必须把tmp还原为初始值i
-//
-//		//求和
-//		while (tmp)
-//		{
-//			sum += pow(tmp % 10, count);
-//			tmp = tmp / 10;
-//		}
-//
-//		if (i == sum)
-//		{
-//			printf("%lf\n", sum);
-//		}
-//	}
-//	return 0;
-//}
+#include<math.h>
+
+int main()
+{
+	int i = 0;
+
+	for (i = 0; i <= 999; i++)
+	{
+		int tmp = i;
+		int count = 1;
+		
+		//算位数
+		while (tmp / 10)
+		{
+			count++;
+			tmp = tmp / 10;
+		}
+
+		tmp = i;//必须把tmp还原为初始值i
+
+		//求和
+	    double sum = 0;
+		while (tmp)
+		{
+			sum += pow(tmp % 10, count);
+			tmp = tmp / 10;
+		}
+
+		if (i == sum)
+		{
+			printf("%lf\n", sum);
+		}
+	}
+	return 0;
+}
 
 //3. 求Sn = a + aa + aaa + aaaa + aaaaa的前5项之和，其中a是一个数字，
 //例如：2 + 22 + 222 + 2222 + 22222
