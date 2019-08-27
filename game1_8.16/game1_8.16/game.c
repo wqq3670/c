@@ -131,42 +131,103 @@ static int Is_full(char board[ROW][COL], int row, int col)
 	return 1;
 }
 
+////判断输赢
+//char Is_Win(char board[ROW][COL], int row, int col)
+//{
+//	int i = 0;
+//	int ret = 0;
+//	//一行
+//	for (i = 0; i < row; i++)
+//	{
+//		if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != ' ')
+//		{
+//			return board[i][1];
+//		}
+//	}
+//	//一列
+//	for (i = 0; i < col; i++)
+//	{
+//		if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] != ' ')
+//		{
+//			return board[1][i];
+//		}
+//	}
+//	//对角线
+//	if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[1][1] != ' ')
+//	{
+//			return board[1][1];
+//	}
+//	if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[1][1] != ' ')
+//	{
+//		return board[1][1];
+//	}
+//	//平局
+//	ret=Is_full(board, row, col);
+//	if (1 == ret)
+//	{
+//		return 'P';
+//	}
+//	return 'C';
+//}
+
+
 //判断输赢
 char Is_Win(char board[ROW][COL], int row, int col)
 {
 	int i = 0;
+	int j = 0;
+	int n=ROW;
 	int ret = 0;
 	//一行
 	for (i = 0; i < row; i++)
 	{
-		if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != ' ')
+		for (j = 1; j < col-1; j++)
 		{
-			return board[i][1];
+			if ((board[i][j - 1] == board[i][j]) && (board[i][j] == board[i][j + 1]) && board[i][j] != ' ')
+
+			return board[i][j];
 		}
 	}
 	//一列
-	for (i = 0; i < col; i++)
+	for (j = 0; i < col; j++)
 	{
-		if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] != ' ')
+		for (i = 1; i < row - 1; i++)
 		{
-			return board[1][i];
+			if (board[i - 1][j] == board[i][j] && board[i][j] == board[i+1][j] && board[i][j] != ' ')
+			{
+				return board[i][j];
+			}
 		}
 	}
 	//对角线
-	if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[1][1] != ' ')
+	for (i = 1; i < row - 1; i++)
 	{
-			return board[1][1];
+		for (j = 1; j < col - 1; j++)
+		{
+			if (board[i - 1][j - 1] == board[i][j] && board[i][j] == board[i + 1][j + 1] && board[i][j] != ' ')
+			{
+				return board[i][j];
+			}
+		}
 	}
-	if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[1][1] != ' ')
+
+	for (i = 1; i < row - 1; i++)
 	{
-		return board[1][1];
+		for (j = col - 1; j > 0; j--)
+		{
+			if (board[i - 1][j + 1] == board[i][j] && board[i][j] == board[i + 1][j - 1] && board[i][j] != ' ')
+			{
+				return board[i][j];
+			}
+		}
 	}
-	//平局
-	ret=Is_full(board, row, col);
+
+
+//平局
+	ret = Is_full(board, row, col);
 	if (1 == ret)
 	{
 		return 'P';
 	}
 	return 'C';
 }
-

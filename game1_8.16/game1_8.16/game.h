@@ -5,8 +5,8 @@
 #include<stdlib.h>
 #include<time.h>
 
-#define ROW 3
-#define COL 3
+#define ROW 5
+#define COL 5
 
 
 void InitBoard(char board[ROW][COL], int row, int col);
